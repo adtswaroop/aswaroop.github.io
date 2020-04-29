@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="CSCI-599 Team Website">
+        <meta name="author" content="Aditi Swaroop">
+        <meta http-equiv="Content-type" content="text/html">
+        <title>Fireboy & Watergirl</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+                integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="//static.miniclipcdn.com/js/game-embed.js"></script>
+        <style>
+            html {
+                    overflow: hidden;
+            }
+            body {
+                margin: 0;
+                font-family: 'ABeeZee';
+                font-size: 22px;
+                color: white;
+                height: 100vh;
+                perspective: 1px;
+                transform-style: preserve-3d;
+                overflow-x:hidden;
+                overflow-y:auto;
+                background-image: url('https://img.wallpapersafari.com/desktop/1680/1050/18/38/kLaFBS.jpg');
+                background-position: center;
+            }
+            .navbar{
+                background: black;
+                position: sticky;
+                top: 0;
+                width: 100%;
+                z-index: 500;
+                height: 10%;
+                padding: 20px;
+            }
+
+            .loadingAnimation{
+                animation-name: grow;
+                animation-duration: 2s;
+            }
+
+            @keyframes grow {
+                from{
+                    transform: scale(2);
+                }
+                to{
+                    transform: scale(1);
+                }
+            }
+
+            .parallax-wrapper {
+                width: 90vw;
+                height:120vh;
+                padding-top:5vh;
+                box-sizing: border-box;
+                transform-style: preserve-3d;
+                margin: 0px auto;
+            }
+            .parallax-wrapper::before {
+                content:"";
+                width: 90vw;
+                height: 100vh;
+                top:0;
+                left:0;
+                background-image: url("https://wallpaperboat.com/wp-content/uploads/2019/06/90s-15.jpg");
+                background-size: cover;
+                background-repeat: no-repeat;
+                position: absolute;
+                z-index: -1;
+                transform:translateZ(-1px) scale(2);
+                margin: 0px auto;
+            }
+            .regular-wrapper {
+                width: 90vw;
+                height:150vh;
+                padding-top:10vh;
+                background-image: url("https://steamuserimages-a.akamaihd.net/ugc/776155680297661064/95033B6CF278BEB9C0B9988A0BC5302AA15CDE40/");
+                z-index: 2;
+                position: relative;
+                margin: 0px auto;
+                background-size: cover;
+            }
+            .content {
+                margin: 0 auto;
+                padding: 50px;
+                width: 80%;
+                background: rgba(72, 72, 72, 0.5)
+            }
+
+            #videoSection::after{
+                height: 90vh;
+            }
+
+            .card-text
+            {
+                margin-bottom: 0px;
+                margin-top: 10px;
+            }
+
+            a{
+                color:white;
+            }
+
+            a:hover{
+                color: #330330;
+            }
+
+            .card:hover{
+                transform: scale(1.25);
+            }
+
+            /* #documentDiv::before{
+                    height: 70vh;
+            } */
+
+            #docDiv::before{
+                height: 70vh;
+            }
+        </style>
+         <script>
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip();
+                $("#teamHeading").css('display', 'inherit');
+                $('#teamHeading').addClass('loadingAnimation');
+                $(".movingDiv").hide();
+            });
+
+            setTimeout(function(){
+                $('#topContent').fadeIn(3000)
+            }, 1500)
+
+            setTimeout(function() {
+                $('#shorDesc').fadeIn(3000);
+            }, 2000)
+
+            setTimeout(function(){
+                $('#gameSection').fadeIn(2000);
+            }, 4000)
+
+            setTimeout(function(){
+                $("#videoSection").fadeIn(3000);
+                $('#videoDiv').fadeIn(4000);
+            }, 6000)
+
+            setTimeout(function(){
+                $('#documentDiv').fadeIn(5000);
+                setTimeout(function(){
+                    $('#teamSection').css('display', 'inherit');
+                }, 3000)
+            }, 8500)
+
+        </script>
+    </head>
+<body>
+        <div class="navbar">
+            <h1 id="teamHeading" align="center" style="display: none; color: #daa019; margin-bottom:1%; margin-top: -1%; z-index: 500; padding:10px">
+                TEAM FIRE BOY WATER GIRL
+            </h1>
+        </div>
+        <div id="topContent" class="parallax-wrapper" style="display: none;" >
+            <div class="content" >
+                <div  id="shorDesc" style="display:none; color:white; width:80%; margin:0px auto; text-align: center;">
+                    <p> Our project is focused on developing reinforcement learning based agent with an Advantage Actor-Critic Model to play a single-player, 2D platformer, pre-existing game named ‘Zed’.
+                     <br>‘Zed’ is a goal-based video game, where the agent has to start at one point, and to complete the level, must reach the end while collecting coins and avoiding obstacles.
+                     <br><br>Check it out!
+                 </p>
+                 </div>
+                 <div id="gameSection" style="display:none; margin-top: 0.5%; text-align: center;">
+                    <div class="miniclip-game-embed" data-game-name="zed" data-theme="5" data-width="546" data-height="390" data-language="en" style="margin:0px auto;"><a href="https://www.miniclip.com/games/zed/">Play Zed</a></div>
+                    </div>
+            </div>
+        </div>
+        <div id="videoSection" class="regular-wrapper" style="display: none; height: 250vh;">
+            <p style="text-align: center; font-size: xxx-large;">DEMO VIDEO & DOCUMENTATION</p>
+            <div id="videoDiv" style="height: 175vh; display: none;">
+                    <div style="text-align:center; margin: 1% auto; padding:20px; background-color: rgba(72, 72, 72, 0.5); width: 80%;">
+                        <p>DQN on Zed</p>
+                        <video width="600" controls>
+                            <source src="/599/DQN for Zed Game.mp4" type="video/mp4">
+                            <source src="/599/DQN for Zed Game.mp4" type="video/ogg">
+                            Your browser does not support HTML5 video.
+                          </video>
+                    </div>
+                    <div style="text-align:center; margin: 1% auto; background-color: rgba(72, 72, 72, 0.5); width: 80%;padding:20px; ">
+                        <p>Color Clustering</p>
+                        <video width="600" controls>
+                            <source src="/599/Color Clustering for Scores and Energy Bar.mp4" type="video/mp4">
+                            <source src="/599/Color Clustering for Scores and Energy Bar.mp4" type="video/ogg">
+                            Your browser does not support HTML5 video.
+                          </video>
+                    </div>
+                    <div style="text-align:center;margin: 1% auto; background-color: rgba(72, 72, 72, 0.5); width: 80%;padding:20px; ">
+                        <p>Actor Critic on Montezuma Game</p>
+                        <video width="600" controls>
+                            <source src="/599/Actor-Critic Augmented for Montezuma Atari Game.mp4" type="video/mp4">
+                            <source src="/599/Actor-Critic Augmented for Montezuma Atari Game.mp4" type="video/ogg">
+                            Your browser does not support HTML5 video.
+                          </video>
+                    </div>
+                    <div style="text-align:center;margin: 1% auto; background-color: rgba(72, 72, 72, 0.5); width: 80%;padding:20px; ">
+                        <p>Actor Critic on Zed</p>
+                        <video width="600" controls>
+                            <source src="/599/Actor-Critic on Zed Game.mov" type="video/mp4">
+                            <source src="/599/Actor-Critic on Zed Game.mov" type="video/ogg">
+                            Your browser does not support HTML5 video.
+                          </video>
+                    </div>
+            </div>
+        </div>
+        <div id="documentDiv" style="display: none">
+            <div class="parallax-wrapper" id="docDiv" style="height: 70vh;">
+                <div class="content"  style="height: 50vh; margin-top: 2%; text-align: center; padding: 30px;">
+                   <a class="col-md-6" href="/599/report.pdf">
+                        <p style="font-size: 30px; margin-top:5%">Technical Paper</p>
+                        <div>
+                            <img src="/599/docu.png" style="width: 60px; height: 60px;">
+                            <div style="margin-top:2%; font-size: 15px; text-decoration: underline;">Click to download</div>
+                        </div>
+                    </a>
+                    <a class="col-md-6" href="https://drive.google.com/open?id=1Dv_OoDUudzeIIHdaJytagauAvhPtF53n" data-toggle="tooltip" title="Use USC ID for access">
+                        <p style="font-size: 30px; margin-top:5%">Final Presentation</p>
+                        <div>
+                            <img src="/599/docu.png" style="width: 60px; height: 60px;">
+                            <div style="margin-top:2%; font-size: 15px; text-decoration: underline;">Click to download</div>
+                        </div>
+                    </a>
+                </div>
+        </div>
+    </div>
+        <div id="teamSection" class="regular-wrapper" style="display: none; height: 110vh;">
+            <p style="text-align: center; font-size: xxx-large;">OUR TEAM</p>
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <a href="https://www.linkedin.com/in/nigrah/">
+                            <div class="card" style="text-align: center;padding: 20px;">
+                                <img class="card-img-top" src="/599/nigrah.jpeg" alt="Card image cap" style="border-radius:100px; height: 150px;">
+                                <div class="card-body">
+                                    <p class="card-text">NIGRAH BAMB</p>
+                                </div>
+                            </div>
+                        </a>
+                      </div>
+                    <div class='col-md-4'>
+                        <a href="https://www.linkedin.com/in/yashashah/">
+                            <div class="card" style="text-align: center;padding: 20px;">
+                                <img class="card-img-top" src="/599/shah.jpeg" alt="Card image cap" style="border-radius:100px; height: 150px;">
+                                <div class="card-body">
+                                    <p class="card-text">YASH SHAH</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class='col-md-4'>
+                        <a href="https://www.linkedin.com/in/namanmgupta/">
+                            <div class="card" style="text-align: center;padding: 20px;">
+                                <img class="card-img-top" src="/599/naman.jpeg" alt="Card image cap" style="border-radius:100px; height: 150px;">
+                                <div class="card-body">
+                                    <p class="card-text">NAMAN GUPTA</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class='col-md-6'>
+                        <a href="https://www.linkedin.com/in/mitali-mehta-b044a053/">
+                            <div class="card" style="text-align: center;padding: 20px;">
+                                <img class="card-img-top" src="/599/mits.jpg" alt="Card image cap" style="border-radius:100px; height: 150px;">
+                                <div class="card-body">
+                                    <p class="card-text">MITALI MEHTA</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class='col-md-6'>
+                        <a href="https://www.linkedin.com/in/aditi-swaroop-517308/">
+                            <div class="card" style="text-align: center;padding: 20px;">
+                                <img class="card-img-top" src="/599/dits.jpg" alt="Card image cap" style="border-radius:100px; height: 150px;">
+                                <div class="card-body">
+                                    <p class="card-text">ADITI SWAROOP</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
